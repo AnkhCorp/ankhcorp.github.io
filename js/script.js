@@ -12,7 +12,6 @@ var data = [
   'andre-rocha-',
   '@wicked1',
   '@coldx',
-  'andrewilliam@live.com\n\n',
 ]
 
 var info = [
@@ -87,9 +86,8 @@ var output = [
   "debug: Setting user account password",
   "debug: Creating user home directory, /home/Ankh",
   "debug: Granting sudo privileges to user 'Ankh'",
-  "debug: Setting telegram account name 'andre-rocha-'",
-  "debug: Setting Doxbin username '@wicked1'",
-  "debug: Setting Breachforums username '@coldx'",
-  "debug: Setting email address 'andrewilliam@live.com'",
+  "debug: Setting Linkedin account name 'andre-rocha-'",
+  "debug: Setting TryHackMe username '@wicked1'",
+  "debug: Setting Medium username '@coldx'",
   "debug: Account initialized!"
 ];
