@@ -1,4 +1,4 @@
-baseURL = '/'
+baseURL = "https://ankhcorp.github.io/"
 title = 'AnkhCorp'
 enableGitInfo = true
 
@@ -16,7 +16,6 @@ defaultContentLanguageInSubdir = false
     weight = 2
 
 [params]
-  onion = 'http://opnpnk6eutjiqy4ndpyvwxd5pncj2g2cmz6fkocr5uh3omnn4utvspad.onion'
   sourcerepo = 'https://github.com/CPunch/openpunk'
 
 [markup]
