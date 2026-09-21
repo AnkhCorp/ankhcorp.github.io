@@ -5,7 +5,7 @@
         <div class="profile-title">
             <div class="profile-icon">
                 <img src="{{ .Params.pfpBG }}"/>
-                <img class="profile-icon-float floating" src="{{ .Params.pfpFG }}"/>
+                {{ with .Params.pfpFG }}<img class="profile-icon-float floating" src="{{ . }}"/>{{ end }}
             </div>
             <h1 class="rainbow">{{ .Params.name }}</h1>
         </div>
@@ -16,7 +16,7 @@
     {{ .Content }}
 </div>
 <footer class="post-footer">
-    {{ partial "lastUpdated.html" (dict "GitInfo" .GitInfo "Repo" .Site.Params.Sourcerepo) }}
+    <!-- {{ partial "lastUpdated.html" (dict "GitInfo" .GitInfo "Repo" .Site.Params.Sourcerepo) }} -->
 </footer>
 
 {{ end }}

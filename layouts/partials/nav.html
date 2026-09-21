@@ -1,8 +1,36 @@
 <header class="nav">
-    <div class="nav-dock">
-        <!-- <div class="logo"><img src="/icon.png"><h1>{{- .Site.Params.label.text | default .Site.Title -}}</h1></div> -->
+    <nav class="nav-dock" aria-label="Main navigation">
         {{ range .Site.Menus.main }}
-            <a class="nav-link" href="{{ .URL }}">{{ print .Name | safeHTML }}</a>
+            <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
         {{ end }}
-    </div>
+        {{- $cur := .Site.Language.Lang -}}
+        {{- $target := "" -}}
+        {{- range .Translations -}}
+            {{- $target = . -}}
+        {{- end -}}
+        {{- $targetLang := "" -}}
+        {{- $fallback := "" -}}
+        {{- if $target -}}
+            {{- $targetLang = $target.Language.Lang -}}
+        {{- else -}}
+            {{- range hugo.Sites -}}
+                {{- if ne .Language.Lang $cur -}}{{- $targetLang = .Language.Lang -}}{{- end -}}
+            {{- end -}}
+            {{- range hugo.Sites -}}
+                {{- if eq .Language.Lang $targetLang -}}{{- $fallback = .Home.RelPermalink -}}{{- end -}}
+            {{- end -}}
+        {{- end -}}
+        {{- with $targetLang -}}
+        <a class="lang-switch" href="{{ if $target }}{{ $target.RelPermalink }}{{ else }}{{ $fallback }}{{ end }}"
+           hreflang="{{ . }}"
+           data-translated="{{ if $target }}true{{ else }}false{{ end }}"
+           role="switch"
+           aria-checked="true"
+           aria-label="{{ if eq . "en" }}Switch to English{{ else }}Switch to Portuguese{{ end }}"
+           title="{{ if eq . "en" }}Switch to English{{ else }}Switch to Português{{ end }}">
+            <span class="ls-opt ls-en{{ if eq $cur "en" }} is-active{{ end }}">EN</span>
+            <span class="ls-opt ls-pt{{ if eq $cur "pt" }} is-active{{ end }}">PT</span>
+        </a>
+        {{- end -}}
+    </nav>
 </header>

@@ -1,9 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ .Site.Language.Lang }}">
     {{ partial "header.html" .}}
     <body>
+        <a class="skip-link" href="#main-content">Skip to content</a>
         {{ partial "nav.html" .}}
-        <div class="main">
+
+        <script>
+        (function () {
+            try {
+                var stored = sessionStorage.getItem('ankhcorp-lang');
+                var cur = document.documentElement.lang;
+                var btn = document.querySelector('.lang-switch');
+                if (btn) {
+                    var target = btn.getAttribute('hreflang');
+                    btn.addEventListener('click', function () {
+                        try { sessionStorage.setItem('ankhcorp-lang', target); } catch (e) {}
+                    });
+                }
+                if (stored && stored !== cur && btn && btn.getAttribute('data-translated') === 'true') {
+                    location.replace(btn.href);
+                }
+            } catch (e) {}
+        })();
+        </script>
+
+        <div class="main" id="main-content">
             {{ block "main" . }}{{ end }}
         </div>
         {{ partial "footer.html" .}}

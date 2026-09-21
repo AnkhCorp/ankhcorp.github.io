@@ -2,7 +2,7 @@
 
 <div class="main">
     <h1>{{ .Title }}</h1>
-    <ul>
+    <ul class="terms-list">
         {{ range .Pages.ByPublishDate.Reverse }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ end }}

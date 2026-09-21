@@ -1,6 +1,10 @@
 {{ $websites := unmarshal (.Get "websites") }}
 <ul class="web-list">
     {{ range $websites }}
-        <li class="web-list-li"><a href="{{ .url }}">{{ .title }}</a></li>
+        <li class="web-list-li"><li class="web-list-li">
+            <a href="{{ .url }}" target="_blank" rel="noopener">
+                {{ .title }}
+            </a>
+        </li>
     {{ end }}
 </ul>

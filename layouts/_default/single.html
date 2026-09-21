@@ -1,9 +1,12 @@
 {{ define "main" }}
 
 <header class="post-header">
+    {{ with .Params.image }}
+        <img src="{{ . }}" class="post-featured-image">
+    {{ end }}
     <p class="date">
         {{- if not .Date.IsZero -}}
-        {{- (slice (.Date.Format (default "January 2, 2006" .Site.Params.DateFormat))) }}
+        {{- (slice (time.Format (default ":date_long" .Site.Params.DateFormat) .Date)) }}
         {{- end -}}
     </p>
     {{- if .Params.tags }}
@@ -15,6 +18,9 @@
     </ul>
     {{- end }}
     <h1>{{ .Title }}</h1>
+    {{- with .Description }}
+    <p class="post-desc">{{ . }}</p>
+    {{- end }}
     {{- if .Params.Repo }}
         <p class="link">
             <a href="{{ .Params.Repo }}">View repository
