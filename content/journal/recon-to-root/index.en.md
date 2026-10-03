@@ -57,7 +57,8 @@ https://[IP]
 Directory Listing
 ```
 
-![Directory Listing Example](directory-listing.png)
+![Directory Listing Example](directory-listing-en.png)
+Directory Listing Example
 
 Based on this result, the enumeration shifted to focus on the content exposed by the server.
 
@@ -112,3 +113,6 @@ Root access
 ```
 
 ---
+
+I decided to make the script for my toolkit available on my GitHub:
+https://github.com/AnkhCorp/Nuke.sh

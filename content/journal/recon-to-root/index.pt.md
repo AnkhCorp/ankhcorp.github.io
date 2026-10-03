@@ -59,7 +59,8 @@ https://[IP]
 Directory Listing
 ```
 
-![Exemplo Directory Listing](directory-listing.png)
+![Exemplo Directory Listing](directory-listing-pt.png)
+Exemplo Directory Listing
 
 A partir desse resultado, a enumeração passou a ser direcionada para o conteúdo exposto pelo servidor.
 
@@ -115,3 +116,5 @@ Acesso root
 
 ---
 
+Decidi disponibilizar o script do meu arsenal de ferramentas no meu Github:
+https://github.com/AnkhCorp/Nuke.sh
